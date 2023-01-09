@@ -1,6 +1,9 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const cors = require('cors');
+const app = express();
 const port = 5000;
+
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello from node! i am excited');
@@ -33,6 +36,7 @@ app.get('/users/:id', (req, res) =>{
   res.send(user);
 });
 
+
 app.get('/fruits/mangoes/fazli', (req, res) => {
   res.send('Yummy Yummy tok marka fazli');
 });
@@ -40,6 +44,7 @@ app.get('/fruits/mangoes/fazli', (req, res) => {
 app.get('/fruits', (req, res) => {
   res.send([ 'mango', 'oranges', 'banana' ]);
 });
+
 
 
 app.listen(port, () => {
